@@ -1,0 +1,39 @@
+﻿@model IEnumerable<VocabHero.Models.UserFlashCard.UserFlashCardListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserCardId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Word)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserCardId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Word)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserCardId  }) |
+            @Html.ActionLink("View", "Details", new {  id=item.UserCardId  }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserCardId  })
+        </td>
+    </tr>
+}
+
+</table>
