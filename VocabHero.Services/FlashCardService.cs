@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VocabHero.Data.Tables;
 using VocabHero.Models.FlashCard;
+using VocabHero.Models.UserFlashCard;
 using static VocabHero.Data.ApplicationUser;
 
 namespace VocabHero.Services
@@ -74,20 +75,39 @@ namespace VocabHero.Services
 
 
         public FlashCardDetail GetFlashCardById(int id)
-        {
+        { // we need to transform our collection of data objects into a collection data object models ie. UserFlashCardListItems
+            //instantiate an empty list of our models
+            List<UserFlashCardListItem> userFlashCardListItems = new List<UserFlashCardListItem>();
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx.FlashCards
                         .Single(e => id == e.FlashCardId);
+                // iterate through the list, transform each data object into a data object model
+                // add each model to our list above
+                foreach(var item in entity.UserFlashCards)
+                {
+                    
+                    var model = new UserFlashCardListItem()
+                    {
+                        UserCardId = item.UserCardId,
+                        Word = item.FlashCard.Word,
+                       // SuccessfulAttempts = // calculate the successful attempts for the word
+                    };
+
+                    userFlashCardListItems.Add(model);
+                }
+
                 return
                     new FlashCardDetail
                     {
                         FlashCardId = entity.FlashCardId,
                         Word = entity.Word,
                         Definition = entity.Definition,
-                        PartOfSpeech = entity.PartOfSpeech
-
+                        PartOfSpeech = entity.PartOfSpeech,
+                        UserFlashCards = userFlashCardListItems // assign to the property of our new data object model the value of the list we created above
+                        
                     };
             }
         }

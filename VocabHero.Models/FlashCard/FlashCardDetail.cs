@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VocabHero.Data.Tables;
+using VocabHero.Models.UserFlashCard;
 
 namespace VocabHero.Models.FlashCard
 {
@@ -16,5 +17,8 @@ namespace VocabHero.Models.FlashCard
 
         [Display(Name = "Part of Speech")]
         public PartOfSpeech PartOfSpeech { get; set; }
+
+        //Using ListItem Model here because we want the ListItem properties, not the generic ones
+        public ICollection<UserFlashCardListItem> UserFlashCards { get; set; }
     }
 }

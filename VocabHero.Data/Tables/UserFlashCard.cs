@@ -12,13 +12,15 @@ namespace VocabHero.Data.Tables
     {
         [Key]
         public int UserCardId { get; set; }
-
         //FlashCard FK
+        [ForeignKey("FlashCard")]
         public int FlashCardId { get; set; }
         public virtual FlashCard FlashCard { get; set; }
 
         //User FK
-        public string Id { get; set; }
+        [ForeignKey("ApplicationUser")]
+
+        public string UserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         //Attempts collection--> UserFlashCard has a one(card) to many(attempts) relationship with UserCardAttempt.cs
