@@ -27,8 +27,3 @@ C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\Voca
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\VocabHero.Data.csproj.CopyComplete
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\VocabHero.Data.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\VocabHero.Data.pdb
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\VocabHero.Data.Migrations.InitialCreate.resources
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\VocabHero.Data.csproj.GenerateResource.cache
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\VocabHero.Data.Migrations.newMigrate.resources
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\VocabHero.Data.Migrations.competedFlashCardAttemptDataLayer.resources
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Data\obj\Debug\VocabHero.Data.Migrations.addedAppUserProperties.resources

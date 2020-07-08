@@ -15,7 +15,7 @@ namespace VocabHero.Data
     public class ApplicationUser : IdentityUser
     {
         //Extended properties
-        public string DisplayName { get; set; }
+        
         public ICollection<UserFlashCard> UserFlashCards { get; set; }
 
 
@@ -24,20 +24,14 @@ namespace VocabHero.Data
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
-            userIdentity.AddClaim(new Claim("DisplayName", this.DisplayName.ToString()));
+            
 
             return userIdentity;
         }
 
         
 
-        public string GetUserID()
-        {
-            ApplicationUser user = new ApplicationUser();
-            string userId = user.Id;
-            return userId;
-
-        }
+       
 
         public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         {
@@ -78,14 +72,14 @@ namespace VocabHero.Data
 
                 modelBuilder.Entity<ApplicationUser>()
                     .HasMany(c => c.UserFlashCards)
-                    .WithRequired(u => u.AppUser)
-                    .HasForeignKey(k => k.UserID)
+                    .WithRequired(u => u.ApplicationUser)
+                    .HasForeignKey(k => k.Id)
                     .WillCascadeOnDelete(false);
                
                 modelBuilder.Entity<UserFlashCard>()
-                    .HasRequired(u => u.AppUser)
+                    .HasRequired(u => u.ApplicationUser)
                     .WithMany(c => c.UserFlashCards)
-                    .HasForeignKey(k => k.UserID)
+                    .HasForeignKey(k => k.Id)
                     .WillCascadeOnDelete(false);
 
                 modelBuilder.Entity<UserFlashCard>()
@@ -103,6 +97,13 @@ namespace VocabHero.Data
             }
         }
 
+        public string GetUserID()
+        {
+            ApplicationUser user = new ApplicationUser();
+            string userId = user.Id;
+            return userId;
+
+        }
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {
             public IdentityUserLoginConfiguration()

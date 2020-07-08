@@ -68,6 +68,7 @@ namespace VocabHero.Web.Controllers
             var model =
                 new FlashCardEdit
                 {
+                    FlashCardId = detail.FlashCardId,
                     Word = detail.Word,
                     Definition = detail.Definition,
                     PartOfSpeech = detail.PartOfSpeech

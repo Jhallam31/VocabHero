@@ -14,16 +14,20 @@ namespace VocabHero.Services
     {
         private readonly string _userId;
 
-        public UserFlashCardService() { }
-        public UserFlashCardService(string id)
+        
+        public UserFlashCardService()
         {
             ApplicationUser user = new ApplicationUser();
-            id = user.Id;
-            _userId = id;
 
-            
+            _userId = user.GetUserID();
         }
+        //public string GetUserID()
+        //{
+        //    ApplicationUser user = new ApplicationUser();
+        //    _userId = user.Id;
+        //    return _userId;
 
+        //}
         public bool CreateUserFlashCard(UserFlashCardCreate model)
         {
 
@@ -31,7 +35,7 @@ namespace VocabHero.Services
                 new UserFlashCard()
                 {
                     FlashCardId = model.FlashCardId,
-                    UserID = model.UserId
+                    Id = _userId
                 };
 
             using (var db = new ApplicationDbContext())
@@ -50,7 +54,7 @@ namespace VocabHero.Services
                 var query =
                     ctx
                         .UserFlashCards
-                        .Where(e => e.UserCardId == e.UserCardId && e.AppUser.Id == _userId)
+                        .Where(e => e.UserCardId == e.UserCardId && e.ApplicationUser.Id == _userId)
                         .Select(
                             e =>
                                 new UserFlashCardListItem
@@ -70,7 +74,7 @@ namespace VocabHero.Services
                 var entity =
                     ctx
                         .UserFlashCards
-                        .Single(e => e.UserCardId == id && e.AppUser.Id == _userId);
+                        .Single(e => e.UserCardId == id && e.ApplicationUser.Id == _userId);
                 entity.FlashCard.FlashCardId = model.FlashCardId;
                 
 
@@ -107,7 +111,7 @@ namespace VocabHero.Services
                 var entity =
                     ctx
                         .UserFlashCards
-                        .Single(e => e.UserCardId == id && e.AppUser.Id == _userId);
+                        .Single(e => e.UserCardId == id && e.ApplicationUser.Id == _userId);
 
                 ctx.UserFlashCards.Remove(entity);
 

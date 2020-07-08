@@ -80,7 +80,7 @@ namespace VocabHero.Web.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.DisplayName, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -159,7 +159,7 @@ namespace VocabHero.Web.Controllers
                 var user = 
                     new ApplicationUser 
                     { 
-                        DisplayName = model.DisplayName, 
+                        UserName = model.Email,
                         Email = model.Email 
                     };
 

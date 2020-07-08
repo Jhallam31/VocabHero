@@ -16,12 +16,14 @@ namespace VocabHero.Services
         {
             var entity =
                 new FlashCard()
+                
                 {
 
                     Word = model.Word,
                     Definition = model.Definition,
                     PartOfSpeech = model.PartOfSpeech
                 };
+            
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.FlashCards.Add(entity);
@@ -41,6 +43,7 @@ namespace VocabHero.Services
                             e =>
                                 new FlashCardListItem
                                 {
+                                    FlashCardId= e.FlashCardId,
                                     Word = e.Word,
                                     Definition = e.Definition,
                                     PartOfSpeech = e.PartOfSpeech,
@@ -58,7 +61,7 @@ namespace VocabHero.Services
                 var entity =
                     ctx
                         .FlashCards
-                        .Single(e => e.FlashCardId == id);
+                        .Single(e => id == e.FlashCardId);
                 entity.Word = model.Word;
                 entity.Definition = model.Definition;
                 entity.PartOfSpeech = model.PartOfSpeech;
@@ -75,9 +78,8 @@ namespace VocabHero.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
-                    ctx
-                        .FlashCards
-                        .Single(e => e.FlashCardId == id);
+                    ctx.FlashCards
+                        .Single(e => id == e.FlashCardId);
                 return
                     new FlashCardDetail
                     {

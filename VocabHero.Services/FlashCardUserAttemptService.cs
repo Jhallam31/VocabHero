@@ -38,7 +38,7 @@ namespace VocabHero.Services
                 var query =
                     ctx
                         .FlashCardUserAttempts
-                        .Where(e => e.UserCardId == e.UserCardId && e.UserFlashCard.AppUser.Id == _userId)
+                        .Where(e => e.UserCardId == e.UserCardId && e.UserFlashCard.ApplicationUser.Id == _userId)
                         .Select(
                             e =>
                                 new FlashCardUserAttemptListItem

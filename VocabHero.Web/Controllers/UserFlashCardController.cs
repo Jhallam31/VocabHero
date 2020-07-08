@@ -18,7 +18,7 @@ namespace VocabHero.Web.Controllers
 
             ApplicationUser user = new ApplicationUser();
             user.GetUserID();
-            var userFlashCardService = new UserFlashCardService(id);
+            var userFlashCardService = new UserFlashCardService();
 
             return userFlashCardService;
         }

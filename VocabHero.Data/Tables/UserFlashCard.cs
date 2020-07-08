@@ -18,8 +18,8 @@ namespace VocabHero.Data.Tables
         public virtual FlashCard FlashCard { get; set; }
 
         //User FK
-        public string UserID { get; set; }
-        public virtual ApplicationUser AppUser { get; set; }
+        public string Id { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         //Attempts collection--> UserFlashCard has a one(card) to many(attempts) relationship with UserCardAttempt.cs
         public ICollection<FlashCardUserAttempt> UserAttempts { get; set; }
