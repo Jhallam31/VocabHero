@@ -16,6 +16,7 @@ namespace VocabHero.Data
     {
         //Extended properties
         
+        public int XP { get; set; }
         public ICollection<UserFlashCard> UserFlashCards { get; set; }
 
 
@@ -30,7 +31,6 @@ namespace VocabHero.Data
         }
 
 
-        public int XP { get; set; }
 
 
         public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

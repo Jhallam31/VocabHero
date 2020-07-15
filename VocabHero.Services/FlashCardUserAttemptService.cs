@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ViewComponents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -17,18 +18,7 @@ namespace VocabHero.Services
         public FlashCardUserAttemptService() { }
         public bool CreateFlashCardUserAttempt(FlashCardUserAttemptCreate model)
         {
-            // evaluate whether the guess was correct or not
-            // probably a getById for the flashcard
-            // and a conditional to dertermine if the user input was correct or not.
-            var entity =
-                 new FlashCardUserAttempt()
-
-                 {
-                     Guess = model.Guess,
-                     IsSuccessful = model.IsSuccessful,
-                     UserCardId = model.UserFlashCard.UserCardId,
-
-                 };
+            
             if (model.Guess != model.UserFlashCard.Word)
             {
                 model.IsSuccessful = false;
@@ -38,6 +28,20 @@ namespace VocabHero.Services
             {
                 model.IsSuccessful = true;
             }
+
+            var entity=
+
+                 new FlashCardUserAttempt()
+
+                 {
+                     Guess = model.Guess,
+                     IsSuccessful = model.IsSuccessful,
+                     UserCardId = model.UserFlashCard.UserCardId
+
+                 };
+
+
+            
 
         
 

@@ -28,22 +28,17 @@ namespace VocabHero.Web.Controllers
 
         //GET: Create
         //FlashCardUserAttempt/Create
-        // this method gets called from UserCardIndex when we click our "Attempt" button/link
+        
         public ActionResult Create(int id) // id is userCardId from our view
         {
-            //our model needs to be able to hold all the information our User needs to answer the question
-            //our model needs to be able to hold all the information our Application needs to evaluate the question and record it to the FlashCardUserAttempt table
-            // getUserFlashCardById and pass the pertinent info into our model.
-
+            
 
             UserFlashCardService svc = new UserFlashCardService();
             
                     var model = new FlashCardUserAttemptCreate()
                     {   
-                        UserFlashCard = svc.GetUserFlashCardById(id),
-                        
-                    };
-            
+                        UserFlashCard = svc.GetUserFlashCardById(id),                       
+                    };          
                     return View(model);
         }
 
@@ -55,17 +50,19 @@ namespace VocabHero.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FlashCardUserAttemptCreate model)
         {
-
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return View(model);
+                TempData["UnsuccessfulAttempt"] = "Incorrect. Try again!";
+                return View();
             }
-
-
+            else
+            {
             var service = CreateFlashCardUserAttemptService();
             service.CreateFlashCardUserAttempt(model);
 
-            return RedirectToAction("Index");
+                TempData["SuccessfulAttempt"] = "Correct!";
+                return RedirectToAction("Index","UserFlashCard");
+            }
         }
 
         //GET: Details

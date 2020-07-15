@@ -25,6 +25,7 @@ namespace VocabHero.Data.Tables
 
         //Attempts collection--> UserFlashCard has a one(card) to many(attempts) relationship with UserCardAttempt.cs
         public ICollection<FlashCardUserAttempt> UserAttempts { get; set; }
+        public ICollection<UserFlashCard> UserFlashCards { get; set; }
 
 
 

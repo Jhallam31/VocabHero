@@ -84,6 +84,8 @@ namespace VocabHero.Services
                 return
                     new UserFlashCardDetail
                     {
+                        UserCardId = entity.UserCardId,
+
                         Word = entity.FlashCard.Word,
                         Definition = entity.FlashCard.Definition,
                         PartOfSpeech = entity.FlashCard.PartOfSpeech

@@ -3,35 +3,38 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="jumbotron-fluid bg-info text-dark" style="padding:7%;">
 
-<h2>Index</h2>
+<h2 class="text-center">My Cards</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+</div>
+<p class="text-center">
+    @Html.ActionLink("Add New Card", "Index","FlashCard")
 </p>
-<div class="container border">
+<div class="container">
+    @TempData["SuccessfulAttempt"]
+    
+    
     <div class="card-columns">
 
         @foreach (var item in Model)
         {
-            <div class="card bg-secondary">
+            <div class="card bg-warning">
                 <div class="card-body">
 
 
                     @Html.HiddenFor(modelItem => item.UserCardId)
                     <div class="text-center align-middle">
-                        <h3>@Html.DisplayFor(modelItem => item.Definition)</h3>
+                        <h5>@Html.DisplayFor(modelItem => item.Definition, new { @class = "text-info" })</h5>
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer text-center">
 
-                    @Html.ActionLink("Edit", "Edit", new { id = item.UserCardId }) |
-                    @Html.ActionLink("View", "Details", new { id = item.UserCardId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.UserCardId })
-
-                    | <button type="button" class="btn btn-light rounded ">
-                        @Html.ActionLink("Attempt Card", "Create", "FlashCardUserAttempt", new { id = item.UserCardId }, null)
+                    <button type="button" class="btn btn-light rounded ">
+                        @Html.ActionLink("Attempt", "Create", "FlashCardUserAttempt", new { id = item.UserCardId }, null)
                     </button>
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.UserCardId }, new { @style = "color:white" })
                 </div>
             </div>
 

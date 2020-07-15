@@ -6,8 +6,8 @@
 }
 <div class="container-fluid bg-secondary text-center" style="height:200px; padding-top:80px; padding-left:20%;padding-right:20%;">
     <div class="card bg-light">
-        
-    <h2 class="align-middle">Flash Card Dictionary</h2>
+
+        <h2 class="align-middle">Flash Card Dictionary</h2>
     </div>
 </div>
 <section class="text-center">
@@ -23,14 +23,10 @@
             @foreach (var item in Model)
             {
                 <div class="card btn bg-info align-middle">
-                    <div class="card">
-                        <div class="card-link">
+                    <button type="button" class="btn btn-warning rounded ">
+                        @Html.ActionLink("Details", "Details", new { id = item.FlashCardId })
+                    </button>
 
-                            <button type="button" class="btn btn-warning rounded ">
-                                @Html.ActionLink("Details","Details",new { id = item.FlashCardId})
-                            </button>
-                        </div>
-                    </div>
                     <h4 class="text-center"> @Html.DisplayFor(modelItem => item.Word)</h4>
                     <p> (@Html.DisplayFor(modelItem => item.PartOfSpeech))</p>
 
@@ -43,4 +39,4 @@
     </div>
 </section>
 
-<!--Flash Card Detail Modal-->
+@**@
