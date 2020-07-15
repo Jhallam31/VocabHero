@@ -41,15 +41,10 @@ namespace VocabHero.Web.Controllers
                     var model = new FlashCardUserAttemptCreate()
                     {   
                         UserFlashCard = svc.GetUserFlashCardById(id),
-
                         
                     };
             
                     return View(model);
-             
-            
-            
-
         }
 
 

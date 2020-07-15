@@ -9,7 +9,7 @@ namespace VocabHero.Models.UserFlashCard
     public class UserFlashCardListItem
     {
         public int UserCardId { get; set; }
-        public string Word { get; set; }
+        public string Definition { get; set; }
         public int SuccessfulAttempts { get; set; }
 
     }

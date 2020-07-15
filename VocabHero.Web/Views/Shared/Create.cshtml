@@ -14,7 +14,7 @@
 
         <div class="form-group text-center">
             <div class="col-md-10 text-center">
-                @Html.DisplayNameFor(model => model.UserFlashCard.Definition)
+                @Html.DisplayFor(model => model.UserFlashCard.Definition)
             </div>
         </div>
         <div class="form-group align-content-center text-center">
@@ -26,13 +26,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-dark" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Cards", "Index", "UserFlashCard")
 </div>
 </section>

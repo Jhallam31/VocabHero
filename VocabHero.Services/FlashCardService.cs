@@ -112,7 +112,7 @@ namespace VocabHero.Services
                         var model = new UserFlashCardListItem()
                         {
                             UserCardId = item.UserCardId,
-                            Word = item.FlashCard.Word,
+                            Definition = item.FlashCard.Definition,
                             // SuccessfulAttempts = // calculate the successful attempts for the word
                         };
 

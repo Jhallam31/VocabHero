@@ -52,7 +52,7 @@ namespace VocabHero.Services
                                 new UserFlashCardListItem
                                 {
                                     UserCardId = e.UserCardId,
-                                    Word = e.FlashCard.Word
+                                    Definition = e.FlashCard.Definition
                                 }
                         );
 
