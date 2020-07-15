@@ -108,9 +108,6 @@ C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\Mi
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\Microsoft.Net.Http.Headers.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\Microsoft.Win32.Registry.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\Newtonsoft.Json.Bson.dll
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\React.AspNet.dll
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\React.AspNet.Middleware.dll
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\React.Core.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\System.Buffers.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\System.Collections.Immutable.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\System.ComponentModel.Annotations.dll
@@ -206,11 +203,6 @@ C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\Mi
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\Microsoft.Win32.Registry.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\Newtonsoft.Json.Bson.pdb
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\Newtonsoft.Json.Bson.xml
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\React.AspNet.xml
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\React.AspNet.Middleware.pdb
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\React.AspNet.Middleware.xml
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\React.Core.pdb
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\React.Core.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\System.Buffers.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\System.Collections.Immutable.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Models\bin\Debug\System.Diagnostics.DiagnosticSource.xml

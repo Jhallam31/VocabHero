@@ -96,11 +96,9 @@ C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\roslyn\Syst
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\AdvancedStringBuilder.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\JavaScriptEngineSwitcher.Core.dll
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\AdvancedStringBuilder.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\JavaScriptEngineSwitcher.Core.xml
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\ru-ru\JavaScriptEngineSwitcher.Core.resources.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\JSPool.dll
@@ -178,9 +176,6 @@ C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Microsoft.E
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Microsoft.Net.Http.Headers.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Microsoft.Win32.Registry.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Newtonsoft.Json.Bson.dll
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\React.AspNet.dll
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\React.AspNet.Middleware.dll
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\React.Core.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\System.Buffers.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\System.Collections.Immutable.dll
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\System.ComponentModel.Annotations.dll
@@ -273,11 +268,6 @@ C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Microsoft.N
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Microsoft.Win32.Registry.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Newtonsoft.Json.Bson.pdb
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\Newtonsoft.Json.Bson.xml
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\React.AspNet.xml
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\React.AspNet.Middleware.pdb
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\React.AspNet.Middleware.xml
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\React.Core.pdb
-C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\React.Core.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\System.Buffers.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\System.Collections.Immutable.xml
 C:\Users\jenna\Documents\CodingPractice\VocabHero2\VocabHero.Web\bin\System.Diagnostics.DiagnosticSource.xml

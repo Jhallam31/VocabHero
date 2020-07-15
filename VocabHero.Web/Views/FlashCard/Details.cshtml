@@ -1,53 +1,27 @@
 ﻿@model VocabHero.Models.FlashCard.FlashCardDetail
 
-@{
-    ViewBag.Title = "Details";
-}
 
-<h2>Details</h2>
+<!--Begin Detail Modal-->
 
-<div>
-    <h4>FlashCardDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FlashCardId)
-        </dt>
+@Html.AntiForgeryToken()
+<div class="card bg-warning" style="margin:20%;">
+    @Html.HiddenFor(model => model.FlashCardId)
+    <h3 class="text-center text-capitalize">@Html.DisplayFor(model => model.Word)</h3>
+    <p class="text-center">(@Html.DisplayFor(model => model.PartOfSpeech))</p>
+    <br />
+    <br />
+    <br />
+    <h5 class="text-center">@Html.DisplayFor(model => model.Definition) </h5>
 
-        <dd>
-            @Html.DisplayFor(model => model.FlashCardId)
-        </dd>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <button class="btn-light">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Word)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Word)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Definition)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Definition)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.PartOfSpeech)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PartOfSpeech)
-        </dd>
-
-    </dl>
+            @Html.ActionLink("Add to Collection", "Create", "UserFlashCard", new { id = Model.FlashCardId }, null)
+        </button>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-@if (User.Identity.IsAuthenticated)
-{
-    @Html.ActionLink("Add to Collection", "Create", "UserFlashCard", new { id = Model.FlashCardId }, null)
-}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")}
