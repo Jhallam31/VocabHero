@@ -19,6 +19,6 @@ namespace VocabHero.Models.FlashCard
         public PartOfSpeech PartOfSpeech { get; set; }
 
         //Using ListItem Model here because we want the ListItem properties, not the generic ones
-        public ICollection<UserFlashCardListItem> UserFlashCards { get; set; }
+        public List<UserFlashCardListItem> UserFlashCards { get; set; }
     }
 }

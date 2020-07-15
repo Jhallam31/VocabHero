@@ -4,11 +4,109 @@
 }
 
 
-@if (Request.IsAuthenticated)
+@if (!Request.IsAuthenticated)
 {
-    
+    <div class="jumbotron jumbotron-fluid  bg-info " style="padding-top:190px;height:400px, -1vw;">
+
+        <div class="card rounded-lg bg-warning" style="height:15vw; width: 28vw; min-width:250px; margin-left:36%; margin-top:-120px;">
+            <div class="card-body text-center" style="padding-top:6vw;">
+                <h1 class="text-muted " style="font-size: 3vw;"><strong>Vocab Hero</strong></h1>
+            </div>
+        </div>
+
+    </div>
+    <div class="container justify-content-center" style="margin-top: -55px;">
+        <div class="row justify-content-center">
+            <div class="col-md-3" style="margin:15px;">
+                <div class="card text-center border-0 shadow-lg p-2" style="height:100px;width: 25vw; font-size:1em, 1vw; min-width: 170px; max-width:230px;">
+
+                    <div class="card-body ">
+                        <button type="button" class="btn btn-success rounded " style="width: 250px, 1vw; height: 50px;" data-toggle="modal" data-target="#registerModal">
+                            Sign Up
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3" style="margin:15px;">
+                <div class="card text-center border-0 shadow-lg p-2" style="height:100px;width: 25vw;font-size:1em, 1vw; min-width: 170px; max-width:230px;">
+
+                    <div class="card-body ">
+                        <button class="btn btn-success rounded " style="width: 250px, 1vw; height: 50px;">
+                            @Html.ActionLink("Card Catalog", "Index", "FlashCard", null, new { @style = "color:white; text-decoration:none;" })
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--Begin Modal-->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalTitle">Create a New Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @{
+                        
+
+                        Html.RenderPartial("Register");
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 }
 else
 {
+    <div class="jumbotron jumbotron-fluid  bg-info " style="padding-top:190px;height:400px, -1vw;">
 
+        <div class="card rounded-lg bg-warning" style="height:15vw; width: 28vw; min-width:250px; margin-left:36%; margin-top:-120px;">
+            <div class="card-body text-center" style="padding-top:6vw;">
+                <h1 class="text-muted " style="font-size: 3vw;"><strong>Vocab Hero</strong></h1>
+            </div>
+        </div>
+
+    </div>
+    <div class="container justify-content-center" style="margin-top: -65px;">
+        <div class="row justify-content-center">
+            <div class="col-md-3 align-middle" style="margin:15px;">
+                <div class="card text-center border-0 shadow-lg p-2" style="height:100px;width: 25vw; font-size:1em, 1vw; min-width: 170px; max-width:230px;">
+
+                    <div class="card-body ">
+                        <button type="button" class="btn btn-success rounded " style="width: 250px, 1vw; height: 50px;" data-toggle="modal" data-target="#registerModal">
+                            @Html.ActionLink("My Cards", "Index", "UserFlashCard", null, new { @style = "color:white;" })
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 align-middle" style="margin:15px;">
+                <div class="card text-center border-0 shadow-lg p-2" style="height:100px;width: 25vw;font-size:1em, 1vw; min-width: 170px; max-width:230px;">
+
+                    <div class="card-body ">
+                        <button class="btn btn-success rounded " style="width: 250px, 1vw; height: 50px;">
+                            @Html.ActionLink("Dictionary", "Index", "FlashCard", null, new { @style = "color:white;" })
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--Profile Section-->
+    <section
+             style="margin-top:50px; padding:30px;">
+        <div class="border-bottom text-center">
+            <h2>My Stats</h2>
+        </div>
+    </section>
 }

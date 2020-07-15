@@ -13,9 +13,9 @@ namespace VocabHero.Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Dictionary()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Our dictionary of flash cards.";
 
             return View();
         }

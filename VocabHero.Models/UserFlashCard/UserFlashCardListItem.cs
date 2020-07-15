@@ -11,5 +11,6 @@ namespace VocabHero.Models.UserFlashCard
         public int UserCardId { get; set; }
         public string Word { get; set; }
         public int SuccessfulAttempts { get; set; }
+
     }
 }

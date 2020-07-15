@@ -1,0 +1,25 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <BuildDependsOn>
+        YarnBuild;
+        $(BuildDependsOn)
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <Target Name="YarnBuild" Condition="'$(YarnBuildCommand)' != ''">
+    <!-- Older versions of the NuGet client don't extract yarn with the +x bit -->
+    <Exec Command="chmod +x &quot;$(NodeJsExecutablePath)&quot;; sync"
+          IgnoreExitCode="true"
+          Condition="'$(NodeJsExecutablePath)' != '' AND '$(OS)' != 'Windows_NT'" />
+
+    <Yarn Command="$(YarnBuildCommand)"
+          WorkingDirectory="$(YarnWorkingDir)"
+          ExecutablePath="$(YarnExecutablePath)"
+          NodeJsExecutablePath="$(NodeJsExecutablePath)"
+          Condition="'$(_YarnBuildWasRun)' != 'true'" />
+
+    <PropertyGroup>
+      <_YarnBuildWasRun>true</_YarnBuildWasRun>
+    </PropertyGroup>
+  </Target>
+</Project>

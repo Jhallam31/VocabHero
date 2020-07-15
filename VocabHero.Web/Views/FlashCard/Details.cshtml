@@ -47,3 +47,7 @@
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Add to Collection", "Create", "UserFlashCard", new { id = Model.FlashCardId }, null)
+}

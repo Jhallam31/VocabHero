@@ -8,7 +8,7 @@ namespace VocabHero.Models.UserFlashCard
 {
     public class UserFlashCardEdit
     {
-        public int FlashCardId { get; set; }
+        public int  FlashCardId { get; set; }
 
     }
 }

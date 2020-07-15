@@ -144,7 +144,7 @@ namespace VocabHero.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return PartialView();
         }
 
         //
@@ -180,7 +180,7 @@ namespace VocabHero.Web.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return PartialView(model);
         }
 
         //

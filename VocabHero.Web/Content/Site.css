@@ -22,3 +22,18 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#HomeJumbotron{
+    padding-top: 20%;
+    height: 400px;
+}
+
+.button-class{
+    color: white;
+    text-decoration: none;
+}
+
+.list-class:hover{
+color:blueviolet;
+
+}

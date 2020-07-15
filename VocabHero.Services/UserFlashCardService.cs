@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VocabHero.Data;
 using VocabHero.Data.Tables;
+using VocabHero.Models.FlashCard;
 using VocabHero.Models.UserFlashCard;
 using static VocabHero.Data.ApplicationUser;
 
@@ -12,41 +13,32 @@ namespace VocabHero.Services
 {
     public class UserFlashCardService
     {
-        private readonly string _userId;
-
-        
+        private readonly string _userId;       
+        public UserFlashCardService(string userId)
+        {
+            _userId = userId;
+        }
         public UserFlashCardService()
         {
-            ApplicationUser user = new ApplicationUser();
 
-            _userId = user.GetUserID();
-        }
-        //public string GetUserID()
-        //{
-        //    ApplicationUser user = new ApplicationUser();
-        //    _userId = user.Id;
-        //    return _userId;
-
-        //}
+        }        
         public bool CreateUserFlashCard(UserFlashCardCreate model)
         {
-
-            var entity =
+            
+            var entity=
                 new UserFlashCard()
+                
                 {
+                    
                     FlashCardId = model.FlashCardId,
-                    Id = _userId
+                    UserId = model.UserId
                 };
-
             using (var db = new ApplicationDbContext())
             {
                 db.UserFlashCards.Add(entity);
                 return db.SaveChanges() == 1;
             }
-
         }
-
-
         public IEnumerable<UserFlashCardListItem> GetUserFlashCards()
         {
             using (var ctx = new ApplicationDbContext())
@@ -59,14 +51,14 @@ namespace VocabHero.Services
                             e =>
                                 new UserFlashCardListItem
                                 {
-                                    Word = e.FlashCard.Word,
+                                    UserCardId = e.UserCardId,
+                                    Word = e.FlashCard.Word
                                 }
                         );
 
                 return query.ToArray();
             }
         }
-
         public bool UpdateUserFlashCard(UserFlashCardEdit model, int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -81,10 +73,6 @@ namespace VocabHero.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-
-
-
         public UserFlashCardDetail GetUserFlashCardById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -103,7 +91,6 @@ namespace VocabHero.Services
                     };
             }
         }
-
         public bool DeleteUserFlashCard(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -118,13 +105,6 @@ namespace VocabHero.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        //public string GetUserID()
-        //{
-        //    ApplicationUser user = new ApplicationUser();
-        //    string userId = user.Id;
-        //    return userId;
-
-        //}
     }
 }
 

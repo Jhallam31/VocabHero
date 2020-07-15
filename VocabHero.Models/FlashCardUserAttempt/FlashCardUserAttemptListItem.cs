@@ -15,7 +15,7 @@ namespace VocabHero.Models.FlashCardUserAttempt
         public bool IsSuccessful { get; set; }
 
         [Display(Name ="Rank gained")]
-        public int RankAdd { get; set; }
+        public int XPGained { get; set; }
 
     }
 }

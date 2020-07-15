@@ -10,7 +10,7 @@ namespace VocabHero.Models.FlashCard
 {
     public class FlashCardListItem
     {
-        
+
         public int FlashCardId { get; set; }
         public string Word { get; set; }
         public string Definition { get; set; }

@@ -21,8 +21,9 @@ namespace VocabHero.Data.Tables
         public virtual UserFlashCard UserFlashCard { get; set; }
 
         //STRETCH GOAL: Add logic in service layer to calculate RankAdd instead of initializing a static value
-        public int RankAdd { get; set; } = 10;
+        //public int XPGained { get; set; } = 10;
 
 
+        public string Guess { get; set; }
     }
 }

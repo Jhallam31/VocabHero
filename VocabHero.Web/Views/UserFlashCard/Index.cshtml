@@ -29,11 +29,39 @@
             @Html.DisplayFor(modelItem => item.Word)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserCardId  }) |
-            @Html.ActionLink("View", "Details", new {  id=item.UserCardId  }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserCardId  })
+            @Html.ActionLink("Edit", "Edit", new { id = item.UserCardId }) |
+            @Html.ActionLink("View", "Details", new { id = item.UserCardId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.UserCardId })
+
+            | <button type="button" class="btn btn-success rounded "  data-toggle="modal" data-target="#flashCardModal">
+    Attempt Card
+</button>   
         </td>
     </tr>
 }
 
 </table>
+<!--Flash Card Attempt Modal-->
+<div class="modal fade" id="flashCardModal" tabindex="-1" role="dialog" aria-labelledby="flashCardModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="flashCardModalTitle">Guess the word!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @{
+
+
+                    Html.RenderPartial("Create");
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

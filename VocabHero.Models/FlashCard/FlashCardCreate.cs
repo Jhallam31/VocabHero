@@ -9,7 +9,7 @@ using VocabHero.Data.Tables;
 namespace VocabHero.Models.FlashCard
 {
     public class FlashCardCreate
-    {
+    {   
         public int FlashCardId { get; set; }
         [Required]
         public string Word { get; set; }

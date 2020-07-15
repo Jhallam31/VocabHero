@@ -1,51 +1,33 @@
 ﻿@model IEnumerable<VocabHero.Models.FlashCard.FlashCardListItem>
 
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Flash Card Library</h2>
+<h2>Flash Card Catalog</h2>
+<section class="text-center">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FlashCardId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Word)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Definition)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PartOfSpeech)
-        </th>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-    </tr>
+    <div class="container-lg">
+        <div class="card-columns">
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.FlashCardId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Word)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Definition)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PartOfSpeech)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.FlashCardId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.FlashCardId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.FlashCardId })
-    </td>
-</tr>
-}
 
-</table>
+            @foreach (var item in Model)
+            {
+            <div class="card btn bg-info align-middle" >
+                @Html.ActionLink("View Card", "Details", "FlashCard", new { id = item.FlashCardId }, null)
+                <h4 class="text-center"> @Html.DisplayFor(modelItem => item.Word)</h4>
+                <p> (@Html.DisplayFor(modelItem => item.PartOfSpeech))</p>
+
+            </div>
+
+
+            }
+
+        </div>
+    </div>
+</section>

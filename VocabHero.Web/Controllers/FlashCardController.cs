@@ -9,7 +9,7 @@ using VocabHero.Services;
 
 namespace VocabHero.Web.Controllers
 {
-    [Authorize]
+    
     public class FlashCardController : Controller
     {
         // GET: FlashCards
@@ -68,7 +68,7 @@ namespace VocabHero.Web.Controllers
             var model =
                 new FlashCardEdit
                 {
-                    FlashCardId = detail.FlashCardId,
+                   
                     Word = detail.Word,
                     Definition = detail.Definition,
                     PartOfSpeech = detail.PartOfSpeech
@@ -80,7 +80,7 @@ namespace VocabHero.Web.Controllers
         //FlashCard/Edit/{id}
         [HttpPost]
         
-        public ActionResult Edit(int id, FlashCardEdit model)
+        public ActionResult Edit(string word, FlashCardEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -92,7 +92,7 @@ namespace VocabHero.Web.Controllers
 
             var service = CreateFlashCardService();
 
-            if (service.UpdateFlashCard(model,id))
+            if (service.UpdateFlashCard(model,word))
             {
                 TempData["SaveResult"] = "Your flash card was updated.";
                 return RedirectToAction("Index");
@@ -118,11 +118,11 @@ namespace VocabHero.Web.Controllers
         [HttpPost]
         [ActionName("Delete")]
         
-        public ActionResult DeletePost(int id)
+        public ActionResult DeletePost(string word)
         {
             var service = CreateFlashCardService();
 
-            service.DeleteFlashCard(id);
+            service.DeleteFlashCard(word);
 
             TempData["SaveResult"] = "Your card was deleted";
 

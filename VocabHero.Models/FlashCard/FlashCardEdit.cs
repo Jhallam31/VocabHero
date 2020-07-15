@@ -11,6 +11,7 @@ namespace VocabHero.Models.FlashCard
     public class FlashCardEdit
     {
         public int FlashCardId { get; set; }
+        
         public string Word { get; set; }
         public string Definition { get; set; }
 

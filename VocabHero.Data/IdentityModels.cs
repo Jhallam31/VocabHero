@@ -29,9 +29,9 @@ namespace VocabHero.Data
             return userIdentity;
         }
 
-        
 
-       
+        public int XP { get; set; }
+
 
         public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         {
@@ -64,29 +64,21 @@ namespace VocabHero.Data
 
                 
     //ARE THESE IN THE WRONG PLACE?
-                modelBuilder.Entity<FlashCard>()
-                    .HasMany(c => c.UserFlashCards)
-                    .WithRequired(u => u.FlashCard)
-                    .HasForeignKey(k => k.FlashCardId)
-                    .WillCascadeOnDelete(false);
+               
 
                 modelBuilder.Entity<ApplicationUser>()
                     .HasMany(c => c.UserFlashCards)
                     .WithRequired(u => u.ApplicationUser)
-                    .HasForeignKey(k => k.Id)
+                    .HasForeignKey(k => k.UserId)
                     .WillCascadeOnDelete(false);
                
                 modelBuilder.Entity<UserFlashCard>()
                     .HasRequired(u => u.ApplicationUser)
                     .WithMany(c => c.UserFlashCards)
-                    .HasForeignKey(k => k.Id)
+                    .HasForeignKey(k => k.UserId)
                     .WillCascadeOnDelete(false);
 
-                modelBuilder.Entity<UserFlashCard>()
-                    .HasRequired(f => f.FlashCard)
-                    .WithMany(c => c.UserFlashCards)
-                    .HasForeignKey(k => k.FlashCardId)
-                    .WillCascadeOnDelete(false);
+               
 
                 modelBuilder.Entity<FlashCardUserAttempt>()
                     .HasRequired(u => u.UserFlashCard)
@@ -97,13 +89,7 @@ namespace VocabHero.Data
             }
         }
 
-        public string GetUserID()
-        {
-            ApplicationUser user = new ApplicationUser();
-            string userId = user.Id;
-            return userId;
-
-        }
+       
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {
             public IdentityUserLoginConfiguration()

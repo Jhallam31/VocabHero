@@ -12,12 +12,14 @@ namespace VocabHero.Models.FlashCardUserAttempt
     {
         public string Word { get; set; }
         public string Definition { get; set; }
+        public string Guess { get; set; }
+        
+        [Display(Name ="XP gained")]
+        public int XPGained { get; set; }
 
         [Display(Name ="Part of Speech")]
         public PartOfSpeech PartOfSpeech { get; set; }
         public bool IsSuccessful { get; set; }
 
-        [Display(Name ="Rank gained")]
-        public int RankAdd { get; set; }
     }
 }

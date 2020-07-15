@@ -12,22 +12,17 @@ namespace VocabHero.Web.Controllers
 {
     public class UserFlashCardController : Controller
     {
- //This probably needs to be changed
-        private UserFlashCardService CreateUserFlashCardServiceWithUserAccountID(string id)
+        //This probably needs to be changed
+        private UserFlashCardService CreateUserFlashCardServiceWithUserAccountID()
         {
-
-            ApplicationUser user = new ApplicationUser();
-            user.GetUserID();
-            var userFlashCardService = new UserFlashCardService();
-
-            return userFlashCardService;
+            return new UserFlashCardService(User.Identity.GetUserId());
         }
 
         // GET: UserFlashCards
         public ActionResult Index()
         {
 
-            var service = CreateUserFlashCardService();
+            var service = CreateUserFlashCardServiceWithUserAccountID();
             var model = service.GetUserFlashCards();
 
             return View(model);
@@ -35,27 +30,29 @@ namespace VocabHero.Web.Controllers
 
         //GET: Create
         //UserFlashCard/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         //Post: Create
         //UserFlashCard/Create
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(UserFlashCardCreate model, string id)
+        
+        
+        public ActionResult Create(int id)
         {
-            if (ModelState.IsValid)
-            {
-                return View(model);
-            }
 
+            var model = new UserFlashCardCreate();
 
-            var service = CreateUserFlashCardServiceWithUserAccountID(id);
+            model.FlashCardId = id;
+            model.UserId = User.Identity.GetUserId();
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(model);
+            //}
+            var service = CreateUserFlashCardService();
             service.CreateUserFlashCard(model);
-
             return RedirectToAction("Index");
         }
 
@@ -63,7 +60,7 @@ namespace VocabHero.Web.Controllers
         //UserFlashCard/Details/{id}
         public ActionResult Details(int id)
         {
-            var svc = CreateUserFlashCardService();
+            var svc = CreateUserFlashCardServiceWithUserAccountID();
             var model = svc.GetUserFlashCardById(id);
 
             return View(model);
@@ -73,23 +70,23 @@ namespace VocabHero.Web.Controllers
         //UserFlashCard/Edit
         public ActionResult Edit(UserFlashCardEdit model, int id)
         {
-            var service = CreateUserFlashCardService();
+            var service = CreateUserFlashCardServiceWithUserAccountID();
             service.UpdateUserFlashCard(model, id);
-            
+
             return View(model);
         }
 
         //POST: Edit
         //UserFlashCard/Edit/{id}
         [HttpPost]
-       
+
         public ActionResult Edit(int id, UserFlashCardEdit model)
         {
 
 
-            var service = CreateUserFlashCardService();
+            var service = CreateUserFlashCardServiceWithUserAccountID();
 
-            
+
             if (service.UpdateUserFlashCard(model, id))
             {
                 TempData["SaveResult"] = "Your flash card was updated.";
@@ -99,8 +96,8 @@ namespace VocabHero.Web.Controllers
             {
                 ModelState.AddModelError("", "Your card could not be updated.");
             }
-                return View(model);
-           
+            return View(model);
+
         }
 
         //Get: Delete
@@ -108,7 +105,7 @@ namespace VocabHero.Web.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var svc = CreateUserFlashCardService();
+            var svc = CreateUserFlashCardServiceWithUserAccountID();
             var model = svc.GetUserFlashCardById(id);
 
             return View(model);
@@ -118,10 +115,10 @@ namespace VocabHero.Web.Controllers
         //FlashCard/Delete/{id}
         [HttpPost]
         [ActionName("Delete")]
-        
+
         public ActionResult DeletePost(int id)
         {
-            var service = CreateUserFlashCardService();
+            var service = CreateUserFlashCardServiceWithUserAccountID();
 
             service.DeleteUserFlashCard(id);
 

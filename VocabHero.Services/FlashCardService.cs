@@ -12,19 +12,19 @@ namespace VocabHero.Services
 {
     public class FlashCardService
     {
-       
+
         public bool CreateFlashCard(FlashCardCreate model)
         {
             var entity =
                 new FlashCard()
-                
-                {
 
+                {
+                    FlashCardId = model.FlashCardId,
                     Word = model.Word,
                     Definition = model.Definition,
                     PartOfSpeech = model.PartOfSpeech
                 };
-            
+
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.FlashCards.Add(entity);
@@ -39,7 +39,6 @@ namespace VocabHero.Services
                 var query =
                     ctx
                         .FlashCards
-                        .Where(e => e.FlashCardId == e.FlashCardId)
                         .Select(
                             e =>
                                 new FlashCardListItem
@@ -55,14 +54,14 @@ namespace VocabHero.Services
             }
         }
 
-        public bool UpdateFlashCard(FlashCardEdit model, int id)
+        public bool UpdateFlashCard(FlashCardEdit model, string word)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .FlashCards
-                        .Single(e => id == e.FlashCardId);
+                        .Single(e => word == (e.Word));
                 entity.Word = model.Word;
                 entity.Definition = model.Definition;
                 entity.PartOfSpeech = model.PartOfSpeech;
@@ -74,8 +73,11 @@ namespace VocabHero.Services
 
 
 
+
+
         public FlashCardDetail GetFlashCardById(int id)
-        { // we need to transform our collection of data objects into a collection data object models ie. UserFlashCardListItems
+        {
+            // we need to transform our collection of data objects into a collection data object models ie. UserFlashCardListItems
             //instantiate an empty list of our models
             List<UserFlashCardListItem> userFlashCardListItems = new List<UserFlashCardListItem>();
 
@@ -83,43 +85,62 @@ namespace VocabHero.Services
             {
                 var entity =
                     ctx.FlashCards
-                        .Single(e => id == e.FlashCardId);
-                // iterate through the list, transform each data object into a data object model
-                // add each model to our list above
-                foreach(var item in entity.UserFlashCards)
+                        .Single(e => e.FlashCardId == id);
+                //// iterate through the list, transform each data object into a data object model
+                //// add each model to our list above
+        
+                if (entity.UserFlashCards == null)
                 {
-                    
-                    var model = new UserFlashCardListItem()
-                    {
-                        UserCardId = item.UserCardId,
-                        Word = item.FlashCard.Word,
-                       // SuccessfulAttempts = // calculate the successful attempts for the word
-                    };
-
-                    userFlashCardListItems.Add(model);
-                }
-
-                return
+                    return
                     new FlashCardDetail
                     {
-                        FlashCardId = entity.FlashCardId,
+                        FlashCardId= entity.FlashCardId,
                         Word = entity.Word,
                         Definition = entity.Definition,
                         PartOfSpeech = entity.PartOfSpeech,
-                        UserFlashCards = userFlashCardListItems // assign to the property of our new data object model the value of the list we created above
-                        
+
+
                     };
+                }
+                else
+                {
+
+
+                    foreach (var item in entity.UserFlashCards)
+                    {
+
+                        var model = new UserFlashCardListItem()
+                        {
+                            UserCardId = item.UserCardId,
+                            Word = item.FlashCard.Word,
+                            // SuccessfulAttempts = // calculate the successful attempts for the word
+                        };
+
+                        userFlashCardListItems.Add(model);
+                    }
+
+                    return
+                        new FlashCardDetail
+                        {
+                            FlashCardId = entity.FlashCardId,
+                            Word = entity.Word,
+                            Definition = entity.Definition,
+                            PartOfSpeech = entity.PartOfSpeech,
+                            UserFlashCards = userFlashCardListItems // assign to the property of our new data object model the value of the list we created above
+
+                    };
+                }
             }
         }
 
-        public bool DeleteFlashCard(int id)
+        public bool DeleteFlashCard(string word)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .FlashCards
-                        .Single(e => e.FlashCardId == id);
+                        .Single(e => e.Word == word);
 
                 ctx.FlashCards.Remove(entity);
 
