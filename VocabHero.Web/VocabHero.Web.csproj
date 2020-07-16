@@ -539,6 +539,7 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Content\Fonts\Lobster-Regular.ttf" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -669,8 +670,6 @@
     <Content Include="Views\FlashCard\Edit.cshtml" />
     <Content Include="Views\FlashCard\Delete.cshtml" />
     <Content Include="Views\UserFlashCard\Index.cshtml" />
-    <Content Include="Views\UserFlashCard\Details.cshtml" />
-    <Content Include="Views\UserFlashCard\Edit.cshtml" />
     <Content Include="Views\UserFlashCard\Delete.cshtml" />
     <Content Include="Views\FlashCardUserAttempt\Index.cshtml" />
     <Content Include="Views\FlashCardUserAttempt\Create.cshtml" />

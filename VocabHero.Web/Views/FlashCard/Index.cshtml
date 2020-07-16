@@ -4,39 +4,53 @@
 @{
     ViewBag.Title = "Index";
 }
-<div class="container-fluid bg-secondary text-center" style="height:200px; padding-top:80px; padding-left:20%;padding-right:20%;">
-    <div class="card bg-light">
+    <div class="jumbotron jumbotron-fluid" style="        padding-top: 190px;
+        height: 400px, -1vw;
+        background-color: #eadbff;">
 
-        <h2 class="align-middle">Flash Card Dictionary</h2>
-    </div>
-</div>
-<section class="text-center">
+        <div class="flip-card" style="height:15vw; width: 28vw; min-width:250px; margin-left:36%; margin-top:-120px;">
+            <div class="text-center flip-card-inner">
+                <div class="flip-card-front">
+                    <span class="jumbotronTitleContainer">
+                        <h1 class="homeJumbotron" style="font-size: 3.5vw;"><strong>Dictionary</strong></h1>
+                    </span>
+                </div>
+                <div class="flip-card-back">
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-
-    <div class="container-lg">
-        <div class="card-columns">
-
-
-            @foreach (var item in Model)
-            {
-                <div class="card btn bg-info align-middle">
-                    <button type="button" class="btn btn-warning rounded ">
-                        @Html.ActionLink("Details", "Details", new { id = item.FlashCardId })
-                    </button>
-
-                    <h4 class="text-center"> @Html.DisplayFor(modelItem => item.Word)</h4>
-                    <p> (@Html.DisplayFor(modelItem => item.PartOfSpeech))</p>
+                    <h6 class="homeJumboTronBack" class="text-center ">Our collection of words and definitions</h6>
 
                 </div>
-
-
-            }
-
+            </div>
         </div>
-    </div>
-</section>
 
-@**@
+    </div>
+        <section class="text-center">
+
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+
+            <div class="container-lg">
+                <div class="card-columns">
+
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="card btn bg-info align-middle">
+                            <button type="button" class="btn btn-warning rounded ">
+                                @Html.ActionLink("Details", "Details", new { id = item.FlashCardId })
+                            </button>
+
+                            <h4 class="text-center"> @Html.DisplayFor(modelItem => item.Word)</h4>
+                            <p> (@Html.DisplayFor(modelItem => item.PartOfSpeech))</p>
+
+                        </div>
+
+
+                    }
+
+                </div>
+            </div>
+        </section>
+
+        @**@

@@ -12,9 +12,6 @@
     @Html.ActionLink("Add New Card", "Index","FlashCard")
 </p>
 <div class="container">
-    @TempData["SuccessfulAttempt"]
-    
-    
     <div class="card-columns">
 
         @foreach (var item in Model)

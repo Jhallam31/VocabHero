@@ -50,7 +50,7 @@ namespace VocabHero.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FlashCardUserAttemptCreate model)
         {
-            if (!ModelState.IsValid)
+            if (model.IsSuccessful == false)
             {
                 TempData["UnsuccessfulAttempt"] = "Incorrect. Try again!";
                 return View();

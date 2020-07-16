@@ -8,9 +8,18 @@
 {
     <div class="jumbotron jumbotron-fluid  bg-info " style="padding-top:190px;height:400px, -1vw;">
 
-        <div class="card rounded-lg bg-warning" style="height:15vw; width: 28vw; min-width:250px; margin-left:36%; margin-top:-120px;">
-            <div class="card-body text-center" style="padding-top:6vw;">
-                <h1 class="text-muted " style="font-size: 3vw;"><strong>Vocab Hero</strong></h1>
+        <div class="flip-card" style="height:15vw; width: 28vw; min-width:250px; margin-left:36%; margin-top:-120px;">
+            <div class="text-center flip-card-inner">
+                <div class="flip-card-front">
+                    <span id="jumbotronTitleContainer">
+                        <h1 class="homeJumbotron" style="font-size: 3.5vw;"><strong>Vocab Hero</strong></h1>
+                    </span>
+                </div>
+                <div class="flip-card-back">
+                    
+                    <h6 class="homeJumboTronBack text-center ">Create custom cards and improve your vocabulary skills!</h6>
+                    
+                </div>
             </div>
         </div>
 
@@ -52,7 +61,7 @@
                 </div>
                 <div class="modal-body">
                     @{
-                        
+
 
                         Html.RenderPartial("Register");
                     }
@@ -68,15 +77,24 @@
 }
 else
 {
-    <div class="jumbotron jumbotron-fluid  bg-info " style="padding-top:190px;height:400px, -1vw;">
+<div class="jumbotron jumbotron-fluid  bg-info " style="padding-top:190px;height:400px, -1vw;">
 
-        <div class="card rounded-lg bg-warning" style="height:15vw; width: 28vw; min-width:250px; margin-left:36%; margin-top:-120px;">
-            <div class="card-body text-center" style="padding-top:6vw;">
-                <h1 class="text-muted " style="font-size: 3vw;"><strong>Vocab Hero</strong></h1>
+    <div class="flip-card" style="height:15vw; width: 28vw; min-width:250px; margin-left:36%; margin-top:-120px;">
+        <div class="text-center flip-card-inner">
+            <div class="flip-card-front">
+                <span id="jumbotronTitleContainer">
+                    <h1 class="homeJumbotron" style="font-size: 3.5vw;"><strong>Vocab Hero</strong></h1>
+                </span>
+            </div>
+            <div class="flip-card-back">
+
+                <h6 class="homeJumboTronBack text-center ">Create custom cards and improve your vocabulary skills!</h6>
+
             </div>
         </div>
-
     </div>
+
+</div>
     <div class="container justify-content-center" style="margin-top: -65px;">
         <div class="row justify-content-center">
             <div class="col-md-3 align-middle" style="margin:15px;">
@@ -103,8 +121,7 @@ else
         </div>
     </div>
     <!--Profile Section-->
-    <section
-             style="margin-top:50px; padding:30px;">
+    <section style="margin-top:50px; padding:30px;">
         <div class="border-bottom text-center">
             <h2>My Stats</h2>
         </div>

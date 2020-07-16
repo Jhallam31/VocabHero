@@ -3,8 +3,11 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
+using System.Dynamic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using VocabHero.Data.Tables;
@@ -16,9 +19,12 @@ namespace VocabHero.Data
     {
         //Extended properties
         
-        public int XP { get; set; }
+       
         public ICollection<UserFlashCard> UserFlashCards { get; set; }
+        public ICollection<FlashCardUserAttempt> FlashCardUserAttempts { get; set; }
 
+
+       
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -31,7 +37,19 @@ namespace VocabHero.Data
         }
 
 
+        //public int GetTotalXP()
+        //{
+        //    ApplicationUser user = new ApplicationUser();
 
+        //    List<FlashCardUserAttempt> userAttempts = user.FlashCardUserAttempts.ToList();
+        //    int totalXP = 0;
+        //    foreach (var item in userAttempts)
+        //    {
+        //        totalXP += item.XPGained;
+        //    }
+        //    return totalXP;
+
+        //}
 
         public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         {
@@ -88,8 +106,8 @@ namespace VocabHero.Data
 
             }
         }
+        
 
-       
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {
             public IdentityUserLoginConfiguration()
@@ -106,7 +124,9 @@ namespace VocabHero.Data
             }
         }
 
-    }
+        
 
+    }
+    
 
 }

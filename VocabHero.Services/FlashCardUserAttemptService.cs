@@ -22,11 +22,12 @@ namespace VocabHero.Services
             if (model.Guess != model.UserFlashCard.Word)
             {
                 model.IsSuccessful = false;
-
+                
             }
             else
             {
                 model.IsSuccessful = true;
+                model.XPGained = 10;
             }
 
             var entity=
@@ -36,8 +37,9 @@ namespace VocabHero.Services
                  {
                      Guess = model.Guess,
                      IsSuccessful = model.IsSuccessful,
-                     UserCardId = model.UserFlashCard.UserCardId
-
+                     UserCardId = model.UserFlashCard.UserCardId,
+                     XPGained = model.XPGained,
+                     
                  };
 
 

@@ -13,16 +13,13 @@ namespace VocabHero.Models.FlashCardUserAttempt
 {
     public class FlashCardUserAttemptCreate
     {
-       // public int UserAttemptId { get; set; }
+        [Display(Name = "Correct?")]
         public bool IsSuccessful { get; set; }
         public string Guess { get; set; }
 
-        // public int XPGained { get; set; } = 10;
+        [Display(Name = "XP gained")]
+        public int XPGained { get; set; }
         public UserFlashCardDetail UserFlashCard {get; set;}
-        //public string Word { get; set; }
-        //public string Definition { get; set; }
-
-        //[Display(Name ="Part of Speech")]
-        //public PartOfSpeech PartOfSpeech { get; set; }
+        
     }
 }
