@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Vocab Hero</title>
+    @Styles.Render("~/Content/css")
+    
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<style>
+
+</style>
+<body>
+    <div class="nav navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Vocab Hero", "Index", "Home", new { area = "" }, new { @class = "navbar-brand link-class" })
+            </div>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav list-inline mr-auto ">
+                    
+                    <li class="list-inline-item link-class" >@Html.ActionLink("Card Catalog", "Index", "FlashCard", null, new { @style = "color:white; text-decoration:none;"})</li>
+                </ul>
+                
+                
+
+                @Html.Partial("_LoginPartial")
+                
+                
+            </div>
+        </div>
+    </div>
+    
+        @RenderBody()
+        <hr />
+    <div class="container">
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Vocab Hero</p>
+        </footer>
+    </div>
+    
+
+    @Scripts.Render("~/bundles/jquery")
+  
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

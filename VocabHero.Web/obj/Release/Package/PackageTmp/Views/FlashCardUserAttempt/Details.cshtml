@@ -1,0 +1,44 @@
+﻿@model VocabHero.Models.FlashCardUserAttempt.FlashCardUserAttemptDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FlashCardUserAttemptDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Word)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Word)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Definition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Definition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSuccessful)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSuccessful)
+        </dd>
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

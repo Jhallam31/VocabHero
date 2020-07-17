@@ -1,0 +1,33 @@
+﻿@model VocabHero.Models.FlashCard.FlashCardDetail
+
+
+<!--Begin Detail Modal-->
+
+@Html.AntiForgeryToken()
+
+@Html.HiddenFor(model => model.FlashCardId)
+<div class="container" style="padding: 10%;">
+
+    <div class="flip-card" style="height:15vw; width: 28vw; min-width:250px; margin-left:36%;">
+        <div class="text-center flip-card-inner">
+            <div class="flip-card-front" id="userFlashCardFront">
+                <span id="detailsCardContainer">
+                    <h1 class="homeJumbotron" style="font-size: 3.5vw;"><strong>@Html.DisplayFor(model => model.Word)</strong></h1>
+                    <p>(@Html.DisplayFor(model => model.PartOfSpeech))</p>
+                </span>
+            </div>
+            <div class="flip-card-back" id="userFlashCardBack">
+
+                <h6 class="homeJumboTronBack text-center ">@Html.DisplayFor(model => model.Definition) </h6>
+
+            </div>
+        </div>
+    </div>
+    <span class="text-center">
+        <button class="btn btn-info ">@Html.ActionLink("Add to Collection", "Create", "UserFlashCard", new { id = Model.FlashCardId }, new { @style = "color:white;" })</button>
+        <button class="btn btn-danger">@Html.ActionLink("Back to List", "Index", "FlashCard",null, new { @style = "color:white;" })</button>
+    </span>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")}
