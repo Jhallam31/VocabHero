@@ -7,14 +7,16 @@
     <h2 class="align-middle">Index</h2>
 </div>
 
-
+<div class="alert-success">
+    
+</div>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Word)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsSuccessful)
+            @Html.DisplayNameFor(model => model.AttemptSuccessful)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.XPGained)
@@ -29,7 +31,7 @@
                 @Html.DisplayFor(modelItem => item.Word)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsSuccessful)
+                @Html.DisplayFor(modelItem => item.AttemptSuccessful)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.XPGained)

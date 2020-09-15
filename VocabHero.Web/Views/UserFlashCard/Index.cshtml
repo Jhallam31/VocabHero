@@ -11,6 +11,9 @@
 <p class="text-center">
     @Html.ActionLink("Add New Card", "Index","FlashCard")
 </p>
+<div class="alert alert-success">
+    @TempData["SuccessfulAttempt"]
+</div>
 <div class="container">
     <div class="card-columns">
 

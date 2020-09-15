@@ -18,34 +18,34 @@ namespace VocabHero.Services
         public FlashCardUserAttemptService() { }
         public bool CreateFlashCardUserAttempt(FlashCardUserAttemptCreate model)
         {
-            
-            if (model.Guess != model.UserFlashCard.Word)
-            {
-                model.IsSuccessful = false;
-                
-            }
-            else
-            {
-                model.IsSuccessful = true;
-                model.XPGained = 10;
-            }
 
-            var entity=
+
+            var entity =
 
                  new FlashCardUserAttempt()
 
                  {
                      Guess = model.Guess,
-                     IsSuccessful = model.IsSuccessful,
+                     AttemptSuccessful = model.AttemptSuccessful,
                      UserCardId = model.UserFlashCard.UserCardId,
                      XPGained = model.XPGained,
-                     
+
                  };
+            if (model.Guess.ToLower() != model.UserFlashCard.Word.ToLower())
+            {
+                model.AttemptSuccessful = false;
+
+            }
+            else
+            {
+                model.AttemptSuccessful = true;
+                model.XPGained = 10;
+            }
 
 
-            
 
-        
+
+
 
             using (var ctx = new ApplicationDbContext())
             {
@@ -58,67 +58,67 @@ namespace VocabHero.Services
 
 
         public IEnumerable<FlashCardUserAttemptListItem> GetFlashCardUserAttempts()
-{
-    using (var ctx = new ApplicationDbContext())
-    {
-        var query =
-            ctx
-                .FlashCardUserAttempts
-                .Where(e => e.UserCardId == e.UserCardId && e.UserFlashCard.ApplicationUser.Id == _userId)
-                .Select(
-                    e =>
-                        new FlashCardUserAttemptListItem
-                        {
-                            Word = e.UserFlashCard.FlashCard.Word,
-                            IsSuccessful = e.IsSuccessful,
-                                    //XPGained = e.XPGained,
-                                }
-                );
-
-        return query.ToArray();
-    }
-}
-
-//Update not needed. I do not want the ability to update an attempt.
-
-//public bool UpdateFlashCardUserAttempt(FlashCardUserAttemptEdit model, int id)
-//{
-//    using (var ctx = new ApplicationDbContext())
-//    {
-//        var entity =
-//            ctx
-//                .UserFlashCards
-//                .Single(e => e.UserCardId == id && e.AppUser.Id == _userId);
-//        entity.FlashCard.FlashCardId = model.FlashCardId;
-
-
-//        return ctx.SaveChanges() == 1;
-//    }
-//}
-
-
-
-
-public FlashCardUserAttemptDetail GetFlashCardUserAttemptById(int id)
-{
-    using (var ctx = new ApplicationDbContext())
-    {
-        var entity =
-            ctx
-                .FlashCardUserAttempts
-                .Single(e => e.UserAttemptId == id);
-        return
-            new FlashCardUserAttemptDetail
+        {
+            using (var ctx = new ApplicationDbContext())
             {
-                Word = entity.UserFlashCard.FlashCard.Word,
-                Definition = entity.UserFlashCard.FlashCard.Definition,
-                PartOfSpeech = entity.UserFlashCard.FlashCard.PartOfSpeech,
-                IsSuccessful = entity.IsSuccessful,
-                        //XPGained = entity.XPGained
+                var query =
+                    ctx
+                        .FlashCardUserAttempts
+                        .Where(e => e.UserCardId == e.UserCardId && e.UserFlashCard.ApplicationUser.Id == _userId)
+                        .Select(
+                            e =>
+                                new FlashCardUserAttemptListItem
+                                {
+                                    Word = e.UserFlashCard.FlashCard.Word,
+                                    AttemptSuccessful = e.AttemptSuccessful,
+                            //XPGained = e.XPGained,
+                        }
+                        );
 
-                    };
-    }
-}
+                return query.ToArray();
+            }
+        }
+
+        //Update not needed. I do not want the ability to update an attempt.
+
+        //public bool UpdateFlashCardUserAttempt(FlashCardUserAttemptEdit model, int id)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx
+        //                .UserFlashCards
+        //                .Single(e => e.UserCardId == id && e.AppUser.Id == _userId);
+        //        entity.FlashCard.FlashCardId = model.FlashCardId;
+
+
+        //        return ctx.SaveChanges() == 1;
+        //    }
+        //}
+
+
+
+
+        public FlashCardUserAttemptDetail GetFlashCardUserAttemptById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .FlashCardUserAttempts
+                        .Single(e => e.UserAttemptId == id);
+                return
+                    new FlashCardUserAttemptDetail
+                    {
+                        Word = entity.UserFlashCard.FlashCard.Word,
+                        Definition = entity.UserFlashCard.FlashCard.Definition,
+                        PartOfSpeech = entity.UserFlashCard.FlashCard.PartOfSpeech,
+                        AttemptSuccessful = entity.AttemptSuccessful,
+                //XPGained = entity.XPGained
+
+            };
+            }
+        }
         //Delete not needed. I do not want the ability to delete attempts.
 
 

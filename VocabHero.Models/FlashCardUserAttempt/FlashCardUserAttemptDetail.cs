@@ -21,7 +21,7 @@ namespace VocabHero.Models.FlashCardUserAttempt
         public PartOfSpeech PartOfSpeech { get; set; }
        
         [Display(Name = "Correct?")]
-        public bool IsSuccessful { get; set; }
+        public bool AttemptSuccessful { get; set; }
  
 
     }

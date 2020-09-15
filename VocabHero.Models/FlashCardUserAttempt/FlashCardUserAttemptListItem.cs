@@ -13,7 +13,7 @@ namespace VocabHero.Models.FlashCardUserAttempt
         public string Word { get; set; }
 
         [Display(Name = "Correct?")]
-        public bool IsSuccessful { get; set; }
+        public bool AttemptSuccessful { get; set; }
 
         [Display(Name = "XP gained")]
         public int XPGained { get; set; }

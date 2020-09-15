@@ -14,7 +14,7 @@ namespace VocabHero.Data.Tables
         public int UserAttemptId { get; set; }
 
         [Display(Name = "Correct?")]
-        public bool IsSuccessful { get; set; }
+        public bool AttemptSuccessful { get; set; }
 
         //UserFlashCard FK --> FCUA has a many(attempts) to one(flashcard) relationship with UserFlashCard
         [ForeignKey("UserFlashCard")]

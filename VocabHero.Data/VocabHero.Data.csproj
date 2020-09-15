@@ -385,6 +385,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202009121902253_InitialCreate.cs" />
+    <Compile Include="Migrations\202009121902253_InitialCreate.designer.cs">
+      <DependentUpon>202009121902253_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009140040490_MigrateToday.cs" />
+    <Compile Include="Migrations\202009140040490_MigrateToday.designer.cs">
+      <DependentUpon>202009140040490_MigrateToday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tables\FlashCard.cs" />
     <Compile Include="Tables\FlashCardUserAttempt.cs" />
@@ -404,6 +413,14 @@
     <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009121902253_InitialCreate.resx">
+      <DependentUpon>202009121902253_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009140040490_MigrateToday.resx">
+      <DependentUpon>202009140040490_MigrateToday.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

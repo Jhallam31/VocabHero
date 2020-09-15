@@ -28,18 +28,18 @@ namespace VocabHero.Web.Controllers
 
         //GET: Create
         //FlashCardUserAttempt/Create
-        
+
         public ActionResult Create(int id) // id is userCardId from our view
         {
-            
+
 
             UserFlashCardService svc = new UserFlashCardService();
-            
-                    var model = new FlashCardUserAttemptCreate()
-                    {   
-                        UserFlashCard = svc.GetUserFlashCardById(id),                       
-                    };          
-                    return View(model);
+
+            var model = new FlashCardUserAttemptCreate()
+            {
+                UserFlashCard = svc.GetUserFlashCardById(id),
+            };
+            return View(model);
         }
 
 
@@ -50,19 +50,20 @@ namespace VocabHero.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FlashCardUserAttemptCreate model)
         {
-            if (model.IsSuccessful == false)
+            var service = CreateFlashCardUserAttemptService();
+            service.CreateFlashCardUserAttempt(model);
+            if (!model.AttemptSuccessful == true)
             {
                 TempData["UnsuccessfulAttempt"] = "Incorrect. Try again!";
                 return View();
             }
             else
             {
-            var service = CreateFlashCardUserAttemptService();
-            service.CreateFlashCardUserAttempt(model);
 
                 TempData["SuccessfulAttempt"] = "Correct!";
-                return RedirectToAction("Index","UserFlashCard");
+                return RedirectToAction("Index", "UserFlashCard");
             }
+
         }
 
         //GET: Details

@@ -27,12 +27,13 @@
                     <div class="form-group">
                         <div class="text-center" style="padding-left:9%;">
                             @Html.EditorFor(model => model.Guess, new { htmlAttributes = new { @class = "form-control align-content-center", } })
-                            @Html.ValidationMessageFor(model => model.Guess, "", new { @class = "text-danger" })
+                            
+
                             @Html.HiddenFor(model => model.UserFlashCard.Word)
                             @Html.HiddenFor(model => model.UserFlashCard.UserCardId)
                             @Html.HiddenFor(model => model.UserFlashCard.PartOfSpeech)
                             @Html.HiddenFor(model => model.UserFlashCard.Definition)
-                            @Html.HiddenFor(model => model.IsSuccessful)
+                            @Html.HiddenFor(model => model.AttemptSuccessful)
                             @Html.HiddenFor(model => model.XPGained)
                         </div>
                     </div>

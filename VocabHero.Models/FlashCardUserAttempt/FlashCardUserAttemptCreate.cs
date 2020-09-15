@@ -14,7 +14,7 @@ namespace VocabHero.Models.FlashCardUserAttempt
     public class FlashCardUserAttemptCreate
     {
         [Display(Name = "Correct?")]
-        public bool IsSuccessful { get; set; }
+        public bool AttemptSuccessful { get; set; }
         public string Guess { get; set; }
 
         [Display(Name = "XP gained")]

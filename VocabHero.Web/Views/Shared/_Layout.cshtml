@@ -9,9 +9,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<style>
 
-</style>
 <body>
     <div class="nav navbar navbar-expand-md navbar-dark bg-primary fixed-top">
         <div class="container">
@@ -25,8 +23,13 @@
             </div>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav list-inline mr-auto ">
-                    
-                    <li class="list-inline-item link-class" >@Html.ActionLink("Card Catalog", "Index", "FlashCard", null, new { @style = "color:white; text-decoration:none;"})</li>
+
+                    <li class="list-inline-item link-class">@Html.ActionLink("Card Catalog", "Index", "FlashCard", null, new { @style = "color:white; text-decoration:none;" })</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="list-inline-item link-class">@Html.ActionLink("My Cards", "Index", "UserFlashCard", null, new { @style = "color:white; text-decoration:none;" })</li>
+                        
+                    }
                 </ul>
                 
                 
